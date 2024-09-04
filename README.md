@@ -78,43 +78,43 @@ FAIT D INSTRUCTION PERMETTENT DE TRIER LES ENTIER PASSEE EN PARAMETRE.
 
 - INSTRUCTIONS AUTORISEES:
 
---> sa (swap a):
+	- sa (swap a):
 		- Intervertit les 2 premiers elements au sommet de la pile "a".
 		- Ne fait rien si il y en a aucun.
---> sb (swap b):
+	- sb (swap b):
 		- Intervertit les 2 premiers elements au sommet de la pile "b".
 		- Ne fait rien si il y en a aucun.
---> ss:
+	- ss:
 		- sa et sb en meme temps.
 
---> pa (push a):
+	- pa (push a):
 		- Prend le 1er elements au sommet de "b" et le met sur "a".
 		- Ne fait rien si "b" est vide.
---> pb (push b):
-	- Prend le 1er elements au sommet de "a" et le met sur "b".
-	- Ne fait rien si "a" est vide.
+	- pb (push b):
+		- Prend le 1er elements au sommet de "a" et le met sur "b".
+		- Ne fait rien si "a" est vide.
 
---> ra (rotate a):
-	- Decale d une position vers le haut tous les elements de la pile "a".
-	- Le 1er element devient le dernier.
---> rb (rotate b):
-	- Decale d une position vers le haut tous les elements de la pile "b".
-	- Le 1er element devient le dernier.
---> rr:
-	- ra et rb en meme temps.
+	- ra (rotate a):
+		- Decale d une position vers le haut tous les elements de la pile "a".
+		- Le 1er element devient le dernier.
+	- rb (rotate b):
+		- Decale d une position vers le haut tous les elements de la pile "b".
+		- Le 1er element devient le dernier.
+	- rr:
+		- ra et rb en meme temps.
 
---> rra (reverse rotate a):
-	- Decale d une position vers le bas tous les elements de la pile "a".
-	- Le  dernier elements de vient le premier.
---> rrb (reverse rotate b):
-	- Decale d une position vers le bas tous les elements de la pile "b".
-	- Le  dernier elements de vient le premier.
+	- rra (reverse rotate a):
+		- Decale d une position vers le bas tous les elements de la pile "a".
+		- Le  dernier elements de vient le premier.
+	- rrb (reverse rotate b):
+		- Decale d une position vers le bas tous les elements de la pile "b".
+		- Le  dernier elements de vient le premier.
 
---> rrr:
-	- rra et rrb en meme temps.
+	- rrr:
+		- rra et rrb en meme temps.
 
 -------------------------------------------------------------------------------
-- AU BOULOT !!
+## AU BOULOT !!
 -------------------------------------------------------------------------------
 	(1) Creation du squelette:
 		- Makefile
@@ -172,7 +172,7 @@ FAIT D INSTRUCTION PERMETTENT DE TRIER LES ENTIER PASSEE EN PARAMETRE.
 	(7) Nettoyage fichiers.
 
 -------------------------------------------------------------------------------
-- CREATION D UN QUICKSORT.
+## CREATION D UN QUICKSORT.
 -------------------------------------------------------------------------------
 
 	- Recuperez la derniere valeur (n).
