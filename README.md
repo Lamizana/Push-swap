@@ -116,9 +116,9 @@ Le programme choisit sa stratégie selon la taille de la pile `a` :
 
 1. **Jusqu'à 3 éléments** : tri direct par cas particuliers (`sort_three`), en au plus 3 opérations.
 2. **Jusqu'à 5 éléments** : les plus petits éléments sont envoyés dans la pile `b` pour ne garder que 3 éléments dans `a`, puis la pile `b` est reversée (`sort_five`).
-3. **Plus de 5 éléments** : **tri radix** (`radix`). Les valeurs sont d'abord **normalisées** : chaque élément reçoit un index de `1` à `n` selon son rang. Le tri compare ensuite les bits de ces index, du bit de poids faible au bit de poids fort — pour chaque bit, les éléments dont le bit vaut `0` partent sur `b`, les autres tournent dans `a`, puis `b` est reversée dans `a`.
+3. **Plus de 5 éléments** : **tri radix** (`radix`). Les valeurs sont d'abord **normalisées** : chaque élément reçoit un index de `1` à `n` selon son rang. Le tri compare ensuite les bits de ces index, du bit de poids faible au bit de poids fort : pour chaque bit, les éléments dont le bit vaut `0` partent sur `b`, les autres tournent dans `a`, puis `b` est reversée dans `a`.
 
-Exemple sur 6 éléments — le radix ne s'exécute qu'au-delà de 5, les piles plus petites passant par `sort_three` et `sort_five` :
+Exemple sur 6 éléments : le radix ne s'exécute qu'au-delà de 5, les piles plus petites passant par `sort_three` et `sort_five` :
 
 ```mermaid
 flowchart TD

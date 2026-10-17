@@ -111,7 +111,7 @@ Deux observations de l'époque méritent d'être relevées :
 - les cas 3 et 5 éléments passaient les seuils dès cette version (3 coups, puis 12/13) ;
 - les 100 éléments étaient à **3 500 opérations**, très au-dessus du seuil de 1 500. C'est cet écart qui a motivé l'abandon du pivot au profit du tri radix. Le seuil des 500 éléments n'a jamais été renseigné.
 
-Réalisé dans `ft_sort_three.c`, `ft_sort_five.c` puis `ft_radix.c` — ce dernier remplaçant complètement l'approche par pivot.
+Réalisé dans `ft_sort_three.c`, `ft_sort_five.c` puis `ft_radix.c`, ce dernier remplaçant complètement l'approche par pivot.
 
 ### (6) Gestion des arguments
 

@@ -50,7 +50,7 @@ Les onze instructions qu'il peut émettre :
 | `rrr` | reverse rotate a + b | `rra` et `rrb` en même temps |
 
 > [!NOTE]
-> Le programme émet six de ces onze instructions : `sa`, `sb`, `pa`, `pb`, `ra` et `rra`. Vérifié exhaustivement sur les 864 permutations de 4, 5 et 6 éléments. Les cinq autres — `ss`, `rb`, `rr`, `rrb` et `rrr` — sont implémentées mais jamais produites : le radix ne se sert que de `pb`, `pa` et `ra`, et les tris de 3 et 5 éléments ajoutent `sa`, `sb` et `rra` (voir [ALGORITHMES.md](ALGORITHMES.md)).
+> Le programme émet six de ces onze instructions : `sa`, `sb`, `pa`, `pb`, `ra` et `rra`. Vérifié exhaustivement sur les 864 permutations de 4, 5 et 6 éléments. Les cinq autres, `ss`, `rb`, `rr`, `rrb` et `rrr`, sont implémentées mais jamais produites : le radix ne se sert que de `pb`, `pa` et `ra`, et les tris de 3 et 5 éléments ajoutent `sa`, `sb` et `rra` (voir [ALGORITHMES.md](ALGORITHMES.md)).
 
 ---
 
@@ -87,7 +87,7 @@ Ce que le projet s'impose, vérifiable dans le dépôt :
 | `Makefile` sans relink, avec `$(NAME)`, `all`, `clean`, `fclean`, `re` | Présent |
 | Aucune variable globale | Respecté |
 | Aucune dépendance externe | Pas de libft : `ft_split`, `ft_strlen`, `ft_atoi` sont recodés dans le projet |
-| Fonctions de la bibliothèque standard utilisées | `write`, `malloc`, `free`, `exit` — rien d'autre |
+| Fonctions de la bibliothèque standard utilisées | `write`, `malloc`, `free`, `exit` : rien d'autre |
 | Style de la norme 42 | Non vérifié : `norminette` n'est pas installé sur la machine de travail |
 
 > [!NOTE]

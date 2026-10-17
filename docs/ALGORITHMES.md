@@ -35,7 +35,7 @@ Le fichier fournit `pile_push`, `pile_pop`, `init_stack_a`, `swap_a` et un `affi
 
 ---
 
-## 2. `zehd_sort` v1 — la boucle de comparaisons
+## 2. `zehd_sort` v1 : la boucle de comparaisons
 
 Première tentative d'algorithme complet, décrite ainsi dans les notes d'origine :
 
@@ -56,7 +56,7 @@ Le constat d'époque est sans appel : **« zehd_sort fonctionne mais trop long !
 
 ---
 
-## 3. `zehd_sort` v2 et v3 — le pivot sur la dernière valeur
+## 3. `zehd_sort` v2 et v3 : le pivot sur la dernière valeur
 
 Deux réécritures introduisent l'idée de pivot, décrite dans les notes sous le titre « CREATION D UN QUICKSORT » :
 
@@ -77,7 +77,7 @@ La différence tient aux comparaisons : la v2 croise les valeurs de `a` et de `b
 
 ---
 
-## 4. `ft_algo` — le pivot explicite
+## 4. `ft_algo` : le pivot explicite
 
 `utils/ft_algo.c` (23/01/2023) formalise l'approche, avec l'en-tête suivant :
 
@@ -98,7 +98,7 @@ Le problème reste le **choix du pivot** : sans garantie sur sa position, le nom
 
 ---
 
-## 5. `ft_algo_2` — la normalisation par index
+## 5. `ft_algo_2` : la normalisation par index
 
 `utils/ft_algo_2.c` (24/01/2023) marque un tournant. Son en-tête :
 
@@ -113,7 +113,7 @@ Le problème reste le **choix du pivot** : sans garantie sur sa position, le nom
 
 Le fichier définit `ft_normalize()`, `value_min()`, `insert_sort()`, `replace_last_value()`, `find_last_value()` et `sort_big()`.
 
-**C'est l'introduction de la normalisation**, et l'ancêtre direct de l'algorithme du rendu. Une fois chaque valeur remplacée par son rang (de `1` à `n`), trier ne consiste plus à comparer des entiers quelconques, mais des positions — un terrain de jeu beaucoup plus régulier.
+**C'est l'introduction de la normalisation**, et l'ancêtre direct de l'algorithme du rendu. Une fois chaque valeur remplacée par son rang (de `1` à `n`), trier ne consiste plus à comparer des entiers quelconques, mais des positions : un terrain de jeu beaucoup plus régulier.
 
 La réinsertion se fait encore par rotations successives, ce qui reste coûteux. La suite logique est de traiter les index **bit par bit**.
 
@@ -135,7 +135,7 @@ L'algorithme du rendu final est dans [`../push_swap/ft_radix.c`](../push_swap/ft
 - ce bit vaut `1` → `ra` (il tourne dans `a`) ;
 - après la passe, `b` est entièrement reversée dans `a` par `pa`.
 
-Exemple sur 6 éléments — le radix ne s'exécute qu'au-delà de 5, les piles plus petites passant par `sort_three` et `sort_five` :
+Exemple sur 6 éléments : le radix ne s'exécute qu'au-delà de 5, les piles plus petites passant par `sort_three` et `sort_five` :
 
 ```mermaid
 flowchart TD
@@ -177,7 +177,7 @@ Résultats de la version historique `zehd_sort`, tels que notés pendant le dév
 | --- | --- | --- |
 | 3 nombres | 3 coups maximum | 3 |
 | 5 nombres | 12 coups maximum | 12 / 13 |
-| 100 nombres | entre 700 et 1 500 | **3 500** — au-dessus du seuil |
+| 100 nombres | entre 700 et 1 500 | **3 500**, au-dessus du seuil |
 | 500 nombres | entre 5 500 et 11 500 | non mesuré |
 
 Résultats de la version **radix** actuelle (moyenne sur 20 tirages aléatoires, mesurée le 17/10/2026, vérifiée par le `checker`) :
