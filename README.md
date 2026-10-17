@@ -55,7 +55,7 @@ Le nombre d'instructions produites détermine la qualité du résultat : l'objec
 
 | Ressource | Lien |
 | --- | --- |
-| *Fiche du projet (portfolio)* | [ZehdBox](https://lamizana.github.io/ZehdBox/) |
+| *Fiche du projet (portfolio)* | [ZehdBox](https://lamizana.github.io/ZehdBox/projets/push_swap/) |
 | *Spécifications* | [`docs/SPECIFICATIONS.md`](docs/SPECIFICATIONS.md) |
 
 ---
