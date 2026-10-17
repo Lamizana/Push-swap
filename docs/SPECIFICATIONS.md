@@ -95,9 +95,16 @@ Ce que le projet s'impose, vérifiable dans le dépôt :
 
 ---
 
-## Performances mesurées
+## Seuils et performances
 
-Moyenne sur 20 tirages aléatoires, chaque sortie validée par un `checker`. Mesures relevées le 17/10/2026 :
+Repères d'évaluation appliqués à la taille des piles :
+
+| Taille | Note maximale | Seuil de validation |
+| --- | --- | --- |
+| 100 nombres | ≤ 700 opérations | ≤ 1 500 opérations |
+| 500 nombres | ≤ 5 500 opérations | ≤ 11 500 opérations |
+
+Mesures du programme, moyenne sur 20 tirages aléatoires, chaque sortie validée par un `checker` (relevés du 17/10/2026) :
 
 | Taille | Moyenne | Minimum | Maximum |
 | --- | --- | --- | --- |

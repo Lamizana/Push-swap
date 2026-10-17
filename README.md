@@ -189,14 +189,14 @@ ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' ')
 # OK
 ```
 
-Résultats du radix actuel, moyenne sur 20 tirages :
+Repères d'évaluation et résultats du radix actuel, moyenne sur 20 tirages :
 
-| Taille | Résultat mesuré |
-| --- | --- |
-| **3 nombres** | 1 opération |
-| **5 nombres** | 8 opérations |
-| **100 nombres** | **1 081 opérations** |
-| **500 nombres** | **6 778 opérations** |
+| Taille | Note maximale | Seuil de validation | Résultat mesuré |
+| --- | --- | --- | --- |
+| **3 nombres** | — | — | 1 opération |
+| **5 nombres** | — | — | 8 opérations |
+| **100 nombres** | ≤ 700 opérations | ≤ 1 500 opérations | **1 081 opérations** |
+| **500 nombres** | ≤ 5 500 opérations | ≤ 11 500 opérations | **6 778 opérations** |
 
 > [!NOTE]
 > À 100 et 500 nombres, le nombre d'opérations est identique quelle que soit la permutation d'entrée : le radix travaille sur les index normalisés, jamais sur les valeurs elles-mêmes. Le détail des algorithmes essayés avant celui-ci est dans [`docs/ALGORITHMES.md`](docs/ALGORITHMES.md).
