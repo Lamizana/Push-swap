@@ -118,20 +118,28 @@ Le programme choisit sa stratégie selon la taille de la pile `a` :
 2. **Jusqu'à 5 éléments** : les plus petits éléments sont envoyés dans la pile `b` pour ne garder que 3 éléments dans `a`, puis la pile `b` est reversée (`sort_five`).
 3. **Plus de 5 éléments** : **tri radix** (`radix`). Les valeurs sont d'abord **normalisées** : chaque élément reçoit un index de `1` à `n` selon son rang. Le tri compare ensuite les bits de ces index, du bit de poids faible au bit de poids fort — pour chaque bit, les éléments dont le bit vaut `0` partent sur `b`, les autres tournent dans `a`, puis `b` est reversée dans `a`.
 
-```console
-        pile a (valeurs)                pile a (index normalisés)
-        [ 42, 7, 900, -3 ]       →      [ 3, 2, 4, 1 ]
+Exemple sur 6 éléments — le radix ne s'exécute qu'au-delà de 5, les piles plus petites passant par `sort_three` et `sort_five` :
 
-        bits de l'index, du LSB au MSB
-        bit 0 : 0 → pb        bit 1 : 0 → pb        bit 2 : 0 → pb
-                1 → ra                1 → ra                1 → ra
-        puis pa jusqu'à vider b, à chaque tour
-
-        résultat : pile a triée par ordre croissant
+```mermaid
+flowchart TD
+    V["valeurs : 15 -3 200 7 900 42"] --> N["normalisation<br/>indices 3 1 5 2 6 4"]
+    N --> P1["passe 1 · bit 0<br/>3 1 5 2 6 4 → 2 6 4 3 1 5"]
+    P1 --> P2["passe 2 · bit 1<br/>2 6 4 3 1 5 → 4 1 5 2 6 3"]
+    P2 --> P3["passe 3 · bit 2<br/>4 1 5 2 6 3 → 1 2 3 4 5 6"]
+    P3 --> R["pile triée : -3 7 15 42 200 900"]
 ```
 
+| Passe | Bit testé | Valeurs écartées vers `b` | Instructions | Pile `a` après la passe |
+| --- | --- | --- | --- | --- |
+| — | normalisation | — | `15 -3 200 7 900 42` → `3 1 5 2 6 4` | `3 1 5 2 6 4` |
+| 1 | bit 0 (LSB) | `4 6 2` | `ra ra ra pb pb pb pa pa pa` | `2 6 4 3 1 5` |
+| 2 | bit 1 | `5 1 4` | `ra ra pb ra pb pb pa pa pa` | `4 1 5 2 6 3` |
+| 3 | bit 2 (MSB) | `3 2 1` | `ra pb ra pb ra pb pa pa pa` | `1 2 3 4 5 6` |
+
+27 instructions au total. Chaque passe place en tête de `a` les index dont le bit testé vaut `0` : au terme de la dernière passe, la pile est triée **sans qu'aucune comparaison de valeurs n'ait eu lieu**.
+
 > [!NOTE]
-> La normalisation est l'étape clé : elle ramène des valeurs quelconques (positives, négatives, jusqu'à `INT_MAX`) dans l'intervalle `[1, n]`, ce qui borne le nombre de bits à parcourir et rend le tri indépendant de l'amplitude des valeurs. Le radix a une complexité en O(n · log n) tours de pile, soit environ 1 100 opérations pour 100 éléments et 6 800 pour 500.
+> La normalisation est l'étape clé : elle ramène des valeurs quelconques (positives, négatives, jusqu'à `INT_MAX`) dans l'intervalle `[1, n]`, ce qui borne le nombre de bits à parcourir et rend le tri indépendant de l'amplitude des valeurs. Le radix a une complexité en O(n · log n) tours de pile, soit **1 081 opérations** pour 100 éléments et **6 778** pour 500.
 
 ---
 
