@@ -134,11 +134,11 @@ Réalisé en deux fichiers, ce qui explique le découpage actuel :
 | `ft_errors.c` | `ft_error` (écrit `Error` sur la sortie d'erreur) |
 
 > [!NOTE]
-> Le message d'erreur était noté `"ERROR"` en majuscules dans les notes d'origine. Le sujet demande `Error` : c'est ce que le code implémente, et les notes ont été corrigées ici.
+> Le message d'erreur était noté `"ERROR"` en majuscules dans les notes d'origine. Le code écrit `Error`, et les notes ont été corrigées ici.
 
 ### (7) Nettoyage des fichiers
 
-Dernière étape du plan : retirer les fichiers de travail et ne garder que ceux du rendu. Les fichiers d'expérimentation ont été déplacés dans `utils/` plutôt que supprimés, avec le sujet officiel au même endroit. Ils ne sont pas compilés (absents de la variable `SRC` du `Makefile`).
+Dernière étape du plan : retirer les fichiers de travail et ne garder que ceux du rendu. Les fichiers d'expérimentation ont été déplacés dans `utils/` plutôt que supprimés, avec les notes d'étude au même endroit. Ils ne sont pas compilés (absents de la variable `SRC` du `Makefile`).
 
 ---
 

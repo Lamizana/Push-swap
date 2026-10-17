@@ -51,12 +51,12 @@
 
 **Push-swap** est un projet d'algorithmique de l'école 42. Le programme reçoit une liste d'entiers en paramètre, la place dans une pile, puis affiche sur la sortie standard la suite d'instructions qui trie cette pile par ordre croissant.
 
-Le nombre d'instructions produites est comparé à un seuil : l'objectif est donc de trouver un algorithme à la fois correct et économe. Le projet implémente un **tri radix** précédé de cas particuliers pour les petites listes, ce qui permet de rester sous les seuils jusqu'à 500 éléments.
+Le nombre d'instructions produites détermine la qualité du résultat : l'objectif est donc de trouver un algorithme à la fois correct et économe. Le projet implémente un **tri radix** précédé de cas particuliers pour les petites listes, ce qui maintient le nombre d'opérations à un niveau constant jusqu'à 500 éléments.
 
 | Ressource | Lien |
 | --- | --- |
 | *Fiche du projet (portfolio)* | [ZehdBox](https://lamizana.github.io/ZehdBox/) |
-| *Sujet officiel* | [`utils/fr.subject.pdf`](utils/fr.subject.pdf) |
+| *Spécifications* | [`docs/SPECIFICATIONS.md`](docs/SPECIFICATIONS.md) |
 
 ---
 
@@ -153,7 +153,7 @@ make
 L'exécutable `push_swap` est généré dans le dossier `push_swap/`.
 
 > [!NOTE]
-> Le `Makefile` compile avec `-Wall -Wextra -Werror`, comme l'exige le sujet de 42. La compilation ne produit aucun avertissement, avec `clang` comme avec `gcc`.
+> Le `Makefile` compile avec `-Wall -Wextra -Werror`. La compilation ne produit aucun avertissement, avec `clang` comme avec `gcc`.
 
 ---
 
@@ -189,14 +189,14 @@ ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' ')
 # OK
 ```
 
-Voici les seuils du sujet et les résultats obtenus par le radix actuel, moyenne sur 20 tirages :
+Résultats du radix actuel, moyenne sur 20 tirages :
 
-| Taille | Note maximale | Seuil de validation | Résultat mesuré |
-| --- | --- | --- | --- |
-| **3 nombres** | — | — | 1 opération |
-| **5 nombres** | — | — | 8 opérations |
-| **100 nombres** | ≤ 700 opérations | ≤ 1 500 opérations | **1 081 opérations** |
-| **500 nombres** | ≤ 5 500 opérations | ≤ 11 500 opérations | **6 778 opérations** |
+| Taille | Résultat mesuré |
+| --- | --- |
+| **3 nombres** | 1 opération |
+| **5 nombres** | 8 opérations |
+| **100 nombres** | **1 081 opérations** |
+| **500 nombres** | **6 778 opérations** |
 
 > [!NOTE]
 > À 100 et 500 nombres, le nombre d'opérations est identique quelle que soit la permutation d'entrée : le radix travaille sur les index normalisés, jamais sur les valeurs elles-mêmes. Le détail des algorithmes essayés avant celui-ci est dans [`docs/ALGORITHMES.md`](docs/ALGORITHMES.md).
@@ -231,12 +231,11 @@ Push-swap/
 │   ├── push_swap-testeur-max/        # Testeur (erreurs, moyenne, valgrind)
 │   └── visualizer-push-swap/         # Visualiseur des piles (Vala / GTK)
 ├── utils/                            # Laboratoire d'algorithmes
-│   ├── fr.subject.pdf                # Sujet officiel du projet
 │   ├── ft_algo.c / ft_algo_2.c       # Pistes par pivot, puis par index
 │   ├── zehd_sort.c / _v2 / _v3       # Itérations de l'algorithme maison
 │   └── list.c                        # Prototype de pile
 ├── docs/                             # Documentation du projet
-│   ├── SUJET.md                      # Référence du sujet
+│   ├── SPECIFICATIONS.md             # Interface et contrat d'utilisation
 │   ├── ALGORITHMES.md                # Algorithmes essayés et performances
 │   └── AVANCEMENT.md                 # Journal de développement
 └── README.md
@@ -248,10 +247,9 @@ Push-swap/
 
 | Fichier | Descriptif |
 | --- | --- |
-| [`docs/SUJET.md`](docs/SUJET.md) | Référence du sujet : fichiers de rendu, contraintes, fonctions autorisées, seuils, bonus |
+| [`docs/SPECIFICATIONS.md`](docs/SPECIFICATIONS.md) | Interface du programme : invocation, contrat de sortie, erreurs, performances mesurées |
 | [`docs/ALGORITHMES.md`](docs/ALGORITHMES.md) | Les sept algorithmes essayés, de `zehd_sort` au radix, et leurs performances |
 | [`docs/AVANCEMENT.md`](docs/AVANCEMENT.md) | Journal de développement : plan d'origine, blocages rencontrés, reste à faire |
-| [`utils/fr.subject.pdf`](utils/fr.subject.pdf) | Sujet officiel du projet 42 |
 | [`push_swap/push_swap-testeur-max/README.md`](push_swap/push_swap-testeur-max/README.md) | Mode d'emploi du testeur (erreurs, moyenne, leaks) |
 | [`push_swap/visualizer-push-swap/README.md`](push_swap/visualizer-push-swap/README.md) | Mode d'emploi du visualiseur |
 
@@ -291,13 +289,13 @@ Les messages de commit suivent [Conventional Commits](https://www.conventionalco
 
 ## Remerciements
 
-- **42 Angoulême** : sujet et cadre pédagogique du projet.
+- **42 Angoulême** : cadre pédagogique du projet.
 - **hydrasho** (42 Angoulême) : auteur du [testeur push_swap](https://gitlab.com/hydrasho/push_swap-testeur-max) et du [visualiseur](https://gitlab.com/hydrasho/visualizer-push-swap) repris dans ce dépôt.
 
 ---
 
 <div align="center">
 
-*Ce projet a été réalisé conformément à la norme et au sujet officiel de 42.*
+*Ce projet a été réalisé conformément à la norme de 42.*
 
 </div>

@@ -156,21 +156,16 @@ L'algorithme du rendu final est dans [`../push_swap/ft_radix.c`](../push_swap/ft
 
 ## Performances
 
-Seuils imposés par le sujet :
-
-| Taille | Note maximale | Seuil de validation |
-| --- | --- | --- |
-| 100 nombres | ≤ 700 opérations | ≤ 1 500 opérations |
-| 500 nombres | ≤ 5 500 opérations | ≤ 11 500 opérations |
+Les seules mesures qui font foi sont celles qu'on peut reproduire. Elles sont obtenues en lançant le programme sur des tirages aléatoires et en validant chaque sortie par un `checker`.
 
 Résultats de la version historique `zehd_sort`, tels que notés pendant le développement :
 
-| Taille | Attendu | Obtenu |
-| --- | --- | --- |
-| 3 nombres | 3 coups maximum | 3 |
-| 5 nombres | 12 coups maximum | 12 / 13 |
-| 100 nombres | entre 700 et 1 500 | **3 500** — hors seuil |
-| 500 nombres | entre 5 500 et 11 500 | non mesuré |
+| Taille | Obtenu |
+| --- | --- |
+| 3 nombres | 3 |
+| 5 nombres | 12 / 13 |
+| 100 nombres | **3 500** — la cible était manquée |
+| 500 nombres | non mesuré |
 
 Résultats de la version **radix** actuelle (moyenne sur 20 tirages aléatoires, mesurée le 17/10/2026, vérifiée par le `checker`) :
 
@@ -184,4 +179,4 @@ Résultats de la version **radix** actuelle (moyenne sur 20 tirages aléatoires,
 À 100 et 500 éléments, les colonnes minimum et maximum sont identiques à la moyenne : c'est la conséquence directe du fonctionnement du radix décrite plus haut.
 
 > [!NOTE]
-> À 500 nombres, 6 778 opérations passent le seuil de validation (11 500) sans atteindre le seuil de note maximale (5 500). Le radix est fiable et correct ; une marge de progression subsiste, par exemple en fusionnant les paires d'instructions (`rr`, `ss`, `rrr`) pendant les passes.
+> À 500 nombres, 6 778 opérations laissent une marge de progression : la piste la plus directe est de fusionner les paires d'instructions (`rr`, `ss`, `rrr`) pendant les passes, puisque le programme les implémente déjà sans jamais les émettre (constat détaillé dans [SPECIFICATIONS.md](SPECIFICATIONS.md)).
