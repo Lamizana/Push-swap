@@ -44,9 +44,6 @@ void	ft_sort_loop(t_list **stack_a)
 
 void	sort_three(t_list **stack_a)
 {
-	int	flag;
-
-	flag = 0;
 	if (ft_lstsize(*stack_a) == 2)
 	{
 		if ((*stack_a)->value > (*stack_a)->next->value)

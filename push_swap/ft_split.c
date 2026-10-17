@@ -60,11 +60,9 @@ char	**ft_split(char *str)
 	char	**tab;
 	int		len;
 	int		i;
-	int		j;
 	int		flag;
 
 	i = 0;
-	j = 0;
 	tab = malloc(sizeof(char *) * (nb_bloc(str) + 1));
 	while (str[i] != '\0')
 	{
